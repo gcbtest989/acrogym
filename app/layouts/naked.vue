@@ -2,7 +2,7 @@
     <v-app>
         <v-main>
            <slot />
-            <whats-app :phone-number="`+971505624364`" />
+            <whats-app :phone-number="`+phone here`" />
         </v-main>
     </v-app>
 </template>

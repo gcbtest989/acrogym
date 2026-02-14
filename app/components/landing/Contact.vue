@@ -23,7 +23,7 @@
               </div>
               <div class="details">
                 <div class="label">Phone</div>
-                <div class="value">+971 50 562 4364</div>
+                <div class="value">+1 666 666 666</div>
               </div>
             </div>
 

@@ -108,7 +108,7 @@ useHead({
                 },
                 "contactPoint": {
                     "@type": "ContactPoint",
-                    "telephone": "+971-50-562-4364",
+                    "telephone": "+6666666666",
                     "contactType": "customer service",
                     "areaServed": "Global",
                     "availableLanguage": ["English", "Spanish"]
