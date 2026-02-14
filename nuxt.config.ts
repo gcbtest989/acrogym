@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         transpile: ['vuetify']
     },
 
-    ssr: true,
+    ssr: false,
     //components: false,
 
     routeRules: {
@@ -41,6 +41,7 @@ export default defineNuxtConfig({
     },
 
     app: {
+        baseURL: '/',
         head: {
             title: 'Acrogym - Building Amazing Software',
             meta: [
