@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         transpile: ['vuetify']
     },
 
-    ssr: true,
+    ssr: false,
     //components: false,
 
     routeRules: {
