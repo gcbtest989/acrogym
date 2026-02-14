@@ -13,7 +13,6 @@ export default defineNuxtConfig({
                 '/'
             ]
         },
-        preset: 'netlify',
     },
 
     devtools: { enabled: process.env.NODE_ENV === 'development' },
@@ -41,7 +40,6 @@ export default defineNuxtConfig({
     },
 
     app: {
-        baseURL: '/',
         head: {
             title: 'Acrogym - Building Amazing Software',
             meta: [
