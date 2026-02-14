@@ -12,7 +12,8 @@ export default defineNuxtConfig({
             routes: [
                 '/'
             ]
-        }
+        },
+        preset: 'netlify',
     },
 
     devtools: { enabled: process.env.NODE_ENV === 'development' },
@@ -34,12 +35,6 @@ export default defineNuxtConfig({
 
     ssr: true,
     //components: false,
-
-    runtimeConfig: {
-        public: {
-            gtagId: 'G-XXXXXC'
-        },
-    },
 
     routeRules: {
         '/': { prerender: true },

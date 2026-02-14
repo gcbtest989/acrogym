@@ -11,7 +11,7 @@
         <!-- Partner 1: Shining Apps LLC -->
         <div class="partner-card">
           <div class="card-glow"></div>
-          <h3 class="partner-name">Shining Apps LLC</h3>
+          <h3 class="partner-name">New</h3>
           <p class="partner-role">Frontend Development and Mobile Apps</p>
           <div class="divider"></div>
           <p class="partner-description">
@@ -31,7 +31,7 @@
         <!-- Partner 2: TCK Systems LLC -->
         <div class="partner-card">
           <div class="card-glow"></div>
-          <h3 class="partner-name">TCK Systems LLC</h3>
+          <h3 class="partner-name">Old</h3>
           <p class="partner-role">Backend, Infrastructure & DevOps Excellence</p>
           <div class="divider"></div>
           <p class="partner-description">
@@ -44,9 +44,6 @@
             <span>Cloud Infra</span>
             <span>DevOps Automation</span>
           </div>
-            <p class="partner-link" style="margin-top: 2rem;">
-                <a class="accent-text font-weight-bold" href="https://www.tcksystems.com">www.tcksystems.com</a>
-            </p>
         </div>
       </div>
 

@@ -12,7 +12,7 @@
       
       <div class="text-wrapper">
           <h1 class="slogan">
-              The Engineering <span class="accent-text">Partner</span> of <span class="gradient-text">Amazing Products</span>
+              The Jajas <span class="accent-text">Partner</span> of <span class="gradient-text">Amazing Products</span>
 
           </h1>
 <!--          <h1 class="slogan">-->
