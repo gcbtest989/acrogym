@@ -7,6 +7,8 @@
 node_modules/
 dist/
 
+.nuxt
+
 # Compiled Java class files
 *.class
 
@@ -48,3 +50,4 @@ Thumbs.db
 *.mov
 *.wmv
 
+.env
