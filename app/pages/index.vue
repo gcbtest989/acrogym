@@ -543,20 +543,6 @@ export default defineComponent({
         setTimeout(() => {
             this.loading = false
         }, 1500)
-
-
-        const { $gtag } = useNuxtApp()
-
-        if ($gtag) {
-            // Wait for GA to be ready
-            const sendEvents = () => {
-                $gtag('event', 'screen_view', {
-                    app_name: `Acrogym - Index`,
-                    page_title: `Acrogym - Index`
-                })
-            }
-            setTimeout(sendEvents, 1000)
-        }
     }
 
 })
