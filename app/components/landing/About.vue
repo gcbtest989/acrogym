@@ -8,21 +8,21 @@
           <h2 class="title">Who We Are</h2>
           <div class="accent-line"></div>
         </div>
-        
+
         <div class="description-grid">
           <div class="text-block">
             <p class="main-text">
               Acrogym is a UAE-based company specializing in comprehensive software solutions, including
-              <span class="highlight">frontend</span>, <span class="highlight">backend</span>, 
-              <span class="highlight">DevOps</span>, <span class="highlight">infrastructure</span>, 
+              <span class="highlight">frontend</span>, <span class="highlight">backend</span>,
+              <span class="highlight">DevOps</span>, <span class="highlight">infrastructure</span>,
               and <span class="highlight">mobile services</span>.
             </p>
             <p class="secondary-text">
-              We bring innovation and excellence to your digital projects. You are not growing your business alone — 
+              We bring innovation and excellence to your digital projects. You are not growing your business alone —
               we have your back and contribute fully to the growth of your team and organization.
             </p>
           </div>
-          
+
           <div class="stats-block">
             <div class="stat-item">
               <div class="stat-value">Global</div>
@@ -66,7 +66,7 @@ export default defineComponent({
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
       linear-gradient(rgba($accent-blue, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba($accent-blue, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;

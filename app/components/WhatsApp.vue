@@ -13,6 +13,7 @@ export default {
     props: {
         phoneNumber: {
             type: String,
+            default: "+974 39930533",
             required: true
         },
         message: {

@@ -1,322 +1,253 @@
 <template>
-  <section class="contact" id="contact">
+  <section class="contact-us" id="contact">
     <div class="container">
-      <div class="contact-card">
-        <div class="contact-info">
-          <h2 class="title">Get in Touch</h2>
-          <p class="subtitle">Ready to innovate? Let's build something exceptional together.</p>
 
-          <div class="info-list">
-            <div class="info-item">
-              <div class="icon-box">
-                <i class="mdi mdi-map-marker"></i>
-              </div>
-              <div class="details">
-                <div class="label">Location</div>
-                <div class="value">Business Bay, Dubai</div>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="icon-box">
-                <i class="mdi mdi-phone"></i>
-              </div>
-              <div class="details">
-                <div class="label">Phone</div>
-                <div class="value">+1 666 666 666</div>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="icon-box">
-                <i class="mdi mdi-email"></i>
-              </div>
-              <div class="details">
-                <div class="label">Email</div>
-                <div class="value">info@acrogym.com</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form">
-          <form @submit.prevent="handleSubmit">
-            <div class="form-group">
-              <label>Full Name</label>
-              <input v-model="form.name" type="text" placeholder="John Doe" required :disabled="loading" />
-            </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input v-model="form.email" type="email" placeholder="john@example.com" required :disabled="loading" />
-            </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea v-model="form.message" placeholder="How can we help you?" required :disabled="loading"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" :disabled="loading">
-              <span v-if="loading">Sending...</span>
-              <span v-else>Send Message</span>
-            </button>
-
-            <div v-if="status.message" :class="['status-msg', status.type]">
-              {{ status.message }}
-            </div>
-          </form>
-        </div>
+      <div class="section-header">
+        <span class="eyebrow">Contact</span>
+        <h2 class="title">Get in Touch</h2>
+        <div class="accent-line"></div>
+        <p class="subtitle">We'd love to hear from you</p>
       </div>
+
+      <div class="contact-grid">
+        <a href="mailto:hello@acrogym.com" class="contact-card">
+          <div class="contact-icon">
+            <i class="mdi mdi-email-outline"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">hello@acrogym.com</span>
+          </div>
+        </a>
+
+        <a href="tel:+97100000000" class="contact-card">
+          <div class="contact-icon">
+            <i class="mdi mdi-phone-outline"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+971 00 000 0000</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="socials-label">Follow Us</div>
+
+      <div class="socials">
+        <a href="#" class="social-btn whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="#" class="social-btn instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <a href="#" class="social-btn tiktok" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+          </svg>
+          <span>TikTok</span>
+        </a>
+      </div>
+
     </div>
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, ref } from 'vue'
-
-export default defineComponent({
-  name: "Contact",
-  setup() {
-    const loading = ref(false)
-    const form = reactive({
-      name: '',
-      email: '',
-      message: ''
-    })
-    const status = reactive({
-      type: '',
-      message: ''
-    })
-
-    const handleSubmit = async () => {
-      loading.value = true
-      status.message = ''
-      
-      try {
-        const response = await fetch('https://something-here/acrogym/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(form)
-        })
-
-        if (response.ok) {
-          status.type = 'success'
-          status.message = 'Message sent successfully! We will get back to you soon.'
-          form.name = ''
-          form.email = ''
-          form.message = ''
-        } else {
-            status.type = 'error'
-            status.message = 'Something went wrong. Please try again or contact us directly via email.'
-        }
-      } catch (error) {
-        status.type = 'error'
-        status.message = 'Something went wrong. Please try again or contact us directly via email.'
-      } finally {
-        loading.value = false
-      }
-    }
-
-    return {
-      form,
-      loading,
-      status,
-      handleSubmit
-    }
-  }
-})
+<script lang="ts" setup>
 </script>
 
 <style scoped lang="scss">
 @use "~/assets/css/colors" as *;
-@use "sass:color";
 
-.contact {
+.contact-us {
   padding: 8rem 0;
-  background: transparent;
+  background: $bg-dark;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
 
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .container {
-    max-width: 1100px;
+/* ── Header ── */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .eyebrow {
+    color: $accent-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    display: block;
   }
 
-  .contact-card {
-    background: $surface-dark;
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    display: grid;
-    grid-template-columns: 1.2fr 1.5fr;
-    overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr;
-    }
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: $text-primary;
+    margin-bottom: 0;
   }
 
-  .contact-info {
-    padding: 4rem;
-    background: linear-gradient(180deg, rgba($accent-blue, 0.1) 0%, transparent 100%);
-    
-    @media (max-width: 576px) {
-      padding: 2.5rem;
-    }
-
-    .title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 800;
-
-      @media (max-width: 600px) {
-        font-size: 1.75rem;
-      }
-    }
-
-    .subtitle {
-      color: $text-secondary;
-      margin-bottom: 3rem;
-      font-size: 1.125rem;
-    }
-
-    .info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-
-      .info-item {
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-
-        .icon-box {
-          width: 48px;
-          height: 48px;
-          background: rgba($accent-blue, 0.1);
-          color: $accent-blue;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          flex-shrink: 0;
-        }
-
-        .details {
-          .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: $accent-teal;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-          }
-          .value {
-            color: $text-primary;
-            font-weight: 500;
-            line-height: 1.4;
-          }
-        }
-      }
-    }
+  .accent-line {
+    width: 80px;
+    height: 4px;
+    margin: 1.25rem auto;
+    background: linear-gradient(90deg, $accent-primary, $accent-tertiary);
+    border-radius: 2px;
   }
 
-  .contact-form {
-    padding: 4rem;
-    background: rgba(255, 255, 255, 0.02);
-
-    @media (max-width: 576px) {
-      padding: 2.5rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-
-      label {
-        display: block;
-        font-size: 0.875rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: $text-secondary;
-      }
-
-      input, textarea {
-        width: 100%;
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        color: white;
-        font-family: inherit;
-        transition: all 0.3s ease;
-
-        &:focus {
-          outline: none;
-          border-color: $accent-blue;
-          background: rgba(255, 255, 255, 0.08);
-        }
-      }
-
-      textarea {
-        height: 150px;
-        resize: none;
-      }
-    }
-
-    .btn-block {
-      width: 100%;
-    }
-
-    .btn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none !important;
-      box-shadow: none !important;
-    }
-
-    .status-msg {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 12px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-align: center;
-      animation: fadeIn 0.3s ease;
-
-      &.success {
-        background: rgba($accent-teal, 0.1);
-        color: $accent-teal;
-        border: 1px solid rgba($accent-teal, 0.2);
-      }
-
-      &.error {
-        background: rgba(#ef4444, 0.1);
-        color: #ef4444;
-        border: 1px solid rgba(#ef4444, 0.2);
-      }
-    }
+  .subtitle {
+    font-size: 1.125rem;
+    color: $text-secondary;
   }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ── Contact cards ── */
+.contact-grid {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3.5rem;
 }
 
-.btn-primary {
-  padding: 1rem 2rem;
-  background: $accent-blue;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba($surface-dark, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  text-decoration: none;
+  flex: 1;
+  min-width: 220px;
+  max-width: 320px;
+  transition: border-color 0.3s ease, transform 0.25s ease, background 0.3s ease;
+  backdrop-filter: blur(8px);
 
   &:hover {
-      background: color.scale($accent-blue, $lightness: -20%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba($accent-blue, 0.4);
+    border-color: rgba($accent-primary, 0.4);
+    background: rgba($surface-dark, 0.9);
+    transform: translateY(-3px);
+  }
+}
+
+.contact-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba($accent-primary, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1.4rem;
+    color: $accent-primary;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: $text-primary;
+  font-weight: 500;
+}
+
+/* ── Socials ── */
+.socials-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-bottom: 1.25rem;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  color: #fff;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    opacity: 0.88;
+  }
+
+  &.whatsapp  { background: #25D366; }
+  &.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+  &.tiktok    { background: #010101; border-color: rgba(255,255,255,0.15); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .contact-us { padding: 5rem 0; }
+
+  .contact-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .social-btn span { display: none; }
+
+  .social-btn {
+    padding: 0.75rem;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
   }
 }
 </style>

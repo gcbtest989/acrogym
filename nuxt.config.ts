@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify from 'vite-plugin-vuetify'
-import {process} from "std-env";
+import { process } from "std-env";
 export default defineNuxtConfig({
 
     devServer: {
@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 
     app: {
         head: {
-            title: 'Acrogym - Building Amazing Software',
+            title: 'Acrogym',
             meta: [
                 { name: 'description', content: 'Acrogym is a UAE-based company specializing in comprehensive software solutions, including frontend, backend, DevOps, infrastructure, and mobile services. We bring innovation and excellence to your digital projects.' }
             ],
@@ -53,7 +53,11 @@ export default defineNuxtConfig({
                 },
                 {
                     rel: 'canonical',
-                    href: `https://www.akrogym.com`
+                    href: `https://www.akrogym.org`
+                },
+                {
+                    rel: "stylesheet",
+                    href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
                 }
             ]
         }

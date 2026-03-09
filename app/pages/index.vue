@@ -1,6 +1,5 @@
 <template>
-    <web-loader v-show="loading" />
-    <div v-show="!loading" class="landing-page">
+    <div class="landing-page">
         <div class="bg-blobs">
             <div class="blob blob-1"></div>
             <div class="blob blob-2"></div>
@@ -8,36 +7,45 @@
             <div class="blob blob-4"></div>
             <div class="blob blob-5"></div>
         </div>
+
         <nav class="navbar">
             <div class="nav-container">
-                <a href="#home"><img src="/img/tckr_logo.png" alt="TCKR Logo" class="nav-logo" /></a>
-                <div class="nav-links" v-if="$vuetify.display.mdAndUp">
-                    <a href="#about">About</a>
-                    <a href="#partnerships">Partenrships</a> <!-- dd -->
-                    <a href="#projects">Projects</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="nav-links" v-else>
-                    <a href="#contact">Contact</a>
+                <a href="#home"><img src="/img/acro-logo-simple-coloured.png" alt="Acrogym Logo" class="nav-logo" /></a>
+
+                <!-- Hamburger button -->
+                <button class="nav-toggle" @click="menuOpen = !menuOpen" :class="{ open: menuOpen }" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-links" :class="{ open: menuOpen }">
+                    <a href="#coach"    @click="menuOpen = false">The Coach</a>
+                    <a href="#trust"    @click="menuOpen = false">Why Us</a>
+                    <a href="#benefits" @click="menuOpen = false">Programs</a>
+                    <a href="#space"    @click="menuOpen = false">Find us</a>
+                    <a href="#contact"    @click="menuOpen = false">Contact</a>
                 </div>
             </div>
         </nav>
 
-        <landing-front />
-        <!-- <landing-about />
-        <landing-partnerships />
-        <landing-portfolio />
-        <landing-tech-stack />
-        <landing-what-we-offer />
-        <landing-contact /> -->
+        <landing-hero />
+        <landing-photo-gallery />
+        <landing-meet-coach />
+        <landing-parents-trust />
+        <landing-why-choose-gym />
+        <landing-our-brand-space />
+        <landing-contact/>
+        <landing-ready-to-start />
 
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-brand">
-                        <img src="/img/tckr_logo.png" alt="TCKR Logo" class="footer-logo" />
-                        <p>Building the future with intelligent software solutions.</p>
+                        <img src="/img/acro-logo-simple-coloured.png" alt="Acrogym Logo" class="footer-logo" />
+                        <p>
+                            Helping children grow stronger, more confident, and fearless through movement.
+                        </p>
                     </div>
                     <div class="footer-copy">
                         &copy; {{ new Date().getFullYear() }} Acrogym FZCO. All rights reserved.
@@ -49,12 +57,14 @@
 </template>
 
 <script setup lang="ts">
-
+import { ref } from 'vue'
 import { Projects, Collaborations } from "~/assets/ts/constants";
 
 definePageMeta({
     layout: 'naked'
 })
+
+const menuOpen = ref(false)
 
 const projects = Projects
 const collaborations = Collaborations
@@ -70,41 +80,6 @@ useHead({
             href: '/favicon.jpg'
         }
     ]
-})
-
-// useSeoMeta({
-//     description: `Acrogym is a premier UAE-based software engineering firm specializing in high-performance frontend, backend, DevOps, and cloud infrastructure solutions. We build and maintain world-class digital products for global partners like Shining Apps and TCK Systems. Expert in Python, Nuxt, Kubernetes, and Mobile App Development.`,
-//     title: `Acrogym | Elite Software Engineering UAE`,
-//     ogTitle: `Acrogym | Elite Software Engineering UAE`,
-//     ogDescription: `High-end software engineering, Kubernetes orchestration, and digital product development based in Dubai. Building the future of digital intelligence.`,
-//     ogImage: `https://www.akrogym.com/img/tckr-labs-og.jpg`,
-//     ogUrl: useRoute().fullPath,
-//     twitterTitle: `Acrogym | Elite Software Engineering UAE`,
-//     twitterDescription: `Premier software engineering firm in Dubai, UAE. Specializing in Python, Nuxt, Kubernetes, and Cloud Infrastructure.`,
-//     twitterImage:`https://www.akrogym.com/img/tckr-labs-og.jpg`,
-//     twitterCard: "summary_large_image",
-//     keywords: "Software Engineering UAE, Dubai Software Company, DevOps Dubai, Kubernetes Management, Python Development UAE, NuxtJS Experts, Mobile App Development Dubai, Acrogym, Shining Apps, TCK Systems, UAE Tech Hub, Cloud Infrastructure Dubai"
-// })
-</script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-    name: "index",
-
-    data() {
-        return {
-            loading: true
-        }
-    },
-
-    async mounted() {
-        setTimeout(() => {
-            this.loading = false
-        }, 1500)
-    }
-
 })
 </script>
 
@@ -173,9 +148,10 @@ export default defineComponent({
 
 @keyframes float {
     from { transform: translate(0, 0) scale(1); }
-    to { transform: translate(100px, 50px) scale(1.1); }
+    to   { transform: translate(100px, 50px) scale(1.1); }
 }
 
+/* ── Navbar ── */
 .navbar {
     position: fixed;
     top: 0;
@@ -188,7 +164,7 @@ export default defineComponent({
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
     .nav-container {
-        max-width: 1200px;
+        max-width: 2200px;
         margin: 0 auto;
         padding: 0 2rem;
         display: flex;
@@ -221,23 +197,81 @@ export default defineComponent({
     }
 }
 
+/* ── Hamburger button ── */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    z-index: 1001;
+
+    span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: $text-secondary;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    &.open span:nth-child(2) { opacity: 0; }
+    &.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* ── Mobile nav ── */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        padding: 1rem 0;
+
+        .nav-links {
+            position: fixed;
+            top: 73px; /* navbar height */
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            gap: 0;
+            background: rgba($bg-dark, 0.97);
+            backdrop-filter: blur(10px);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+
+
+            &.open {
+                max-height: 320px;
+            }
+
+            a {
+                padding: 1.1rem 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+/* ── Footer ── */
 .footer {
     padding: 6rem 0 3rem;
     background: $bg-dark;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 
-
     .footer-content {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-
-        @media (max-width: 768px) {
-            flex-direction: column;
-            text-align: center;
-        }
+        text-align: center;
+        gap: 1.5rem;
     }
 
     .footer-brand {
@@ -245,9 +279,11 @@ export default defineComponent({
             height: 40px;
             margin-bottom: 1rem;
         }
+
         p {
             color: $text-secondary;
             font-size: 0.9375rem;
+            max-width: 400px;
         }
     }
 

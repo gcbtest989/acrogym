@@ -1,27 +1,25 @@
 <template>
   <section class="hero" id="home">
+
     <div class="hero-bg">
-      <img src="/img/hero-bg.png" alt="Futuristic Tech Background" />
+      <img src="/img/banner.jpeg" alt="Gymnastics Background" />
       <div class="overlay"></div>
     </div>
 
     <div class="hero-content container">
-      <div class="logo-wrapper">
-        <img src="/img/acro-logo-simple-coloured.png" alt="TCKR Tech Logo" class="main-logo" />
-      </div>
-
       <div class="text-wrapper">
         <h1 class="slogan">
-          Acrogym <br> <span class="gradient-text">New Limits</span>
+          <span class="acro">Acro</span><span class="gym">GYM</span>
         </h1>
 
-        <p class="subtitle">
-          World-class Software Engineering solutions. Based in the <strong>United Arab Emirates</strong>, building for
-          the world.
-        </p>
+        <div class="logo-wrapper">
+          <h2 class="brand-name">Developmental Gymnastics & Professional Actobatics</h2>
+        </div>
         <div class="cta-group">
-          <a href="#about" class="btn btn-primary">Explore Our Mission</a>
-          <a href="#projects" class="btn btn-outline">Our Contributions</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe23_qFm0_6JOlsg9SSbCHhRGeOHAyjadBtclmwoUnSG4kWyw/viewform"
+            target="_blank" class="btn btn-primary">
+            Book Your First Lesson
+          </a>
         </div>
       </div>
     </div>
@@ -35,16 +33,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "Front"
-})
+  name: "HeroSection"
+});
 </script>
 
 <style scoped lang="scss">
 @use "~/assets/css/colors" as *;
 @use "sass:color";
+
+.acro {
+  color: $accent-secondary;
+}
+
+.gym {
+  color: $accent-primary;
+}
 
 .hero {
   position: relative;
@@ -58,28 +64,23 @@ export default defineComponent({
 
   .hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    inset: 0;
+    z-index: 0;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.6) contrast(1.1);
+      object-position: center 20%; // ← pulls the frame up so heads aren't cut
+      filter: brightness(0.35);
     }
 
     .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: linear-gradient(to bottom,
-          rgba($bg-dark, 0.4) 0%,
-          rgba($bg-dark, 0.8) 100%);
+          rgba($bg-dark, 0.5) 0%,
+          rgba($bg-dark, 0.9) 100%);
     }
   }
 
@@ -91,50 +92,35 @@ export default defineComponent({
     animation: fadeIn 1.2s ease-out;
 
     .logo-wrapper {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
 
-      .main-logo {
-        height: 190px;
-        width: auto;
-        filter: drop-shadow(0 0 30px rgba($accent-blue, 0.4));
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-        @media (max-width: 600px) {
-          height: 130px;
-        }
-
-        &.tech-logo {
-          mix-blend-mode: screen;
-          border-radius: 50%;
-          filter: contrast(120%) brightness(110%);
-        }
-
-        &:hover {
-          transform: scale(1.05);
-        }
+      .brand-name {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: $text-primary;
       }
     }
 
     .slogan {
-      font-size: 4.5rem;
+      font-size: 3.8rem;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       font-weight: 800;
 
       @media (max-width: 768px) {
-        font-size: 3rem;
+        font-size: 2.8rem;
       }
 
       @media (max-width: 600px) {
-        font-size: 2.25rem;
-      }
-
-      .accent-text {
-        color: $accent-blue;
+        font-size: 2rem;
       }
 
       .gradient-text {
-        background: linear-gradient(45deg, $accent-blue, $accent-purple, $accent-teal);
+        background: linear-gradient(45deg,
+            $accent-primary,
+            $accent-tertiary);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -144,28 +130,26 @@ export default defineComponent({
       font-size: 1.25rem;
       color: $text-secondary;
       margin-bottom: 3rem;
-      max-width: 600px;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
+
+      @media (max-width: 600px) {
+        font-size: 1.05rem;
+      }
     }
 
     .cta-group {
       display: flex;
-      gap: 1.5rem;
       justify-content: center;
-
-      @media (max-width: 480px) {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   }
 }
 
 .btn {
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   border-radius: 16px;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.3s ease;
   font-size: 1rem;
   text-transform: uppercase;
@@ -173,27 +157,15 @@ export default defineComponent({
   display: inline-block;
 
   &.btn-primary {
-    background: $accent-blue;
+    background: $accent-primary;
     color: white;
     border: none;
-    box-shadow: 0 4px 15px rgba($accent-blue, 0.4);
+    box-shadow: 0 4px 20px rgba($accent-primary, 0.4);
 
     &:hover {
-      background: color.scale($accent-blue, $lightness: -20%);
-      box-shadow: 0 6px 20px rgba($accent-blue, 0.6);
-      transform: translateY(-2px);
-    }
-  }
-
-  &.btn-outline {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: white;
-
-    &:hover {
-      border-color: white;
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
+      background: color.scale($accent-primary, $lightness: -10%);
+      box-shadow: 0 6px 30px rgba($accent-primary, 0.6);
+      transform: translateY(-3px);
     }
   }
 }
@@ -208,14 +180,14 @@ export default defineComponent({
   .mouse {
     width: 26px;
     height: 42px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     position: relative;
 
     .wheel {
       width: 4px;
       height: 8px;
-      background: white;
+      background: $accent-primary;
       border-radius: 2px;
       position: absolute;
       top: 8px;

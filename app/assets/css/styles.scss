@@ -1,12 +1,20 @@
 @use "colors" as *;
 
+@font-face {
+  font-family: "Gerhaus";
+  src: url("/fonts/gerhaus.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     background-color: $bg-dark;
     color: $text-primary;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
@@ -17,14 +25,18 @@ body {
     overflow-x: hidden;
 }
 
+h2 {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.03em;
+}
+
 h1,
-h2,
 h3,
 h4,
 h5,
 h6 {
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-family: "Gerhaus", serif;
+    letter-spacing: 0.03em;
 }
 
 a {
