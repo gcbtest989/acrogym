@@ -35,7 +35,7 @@ export default defineComponent({
   name: "ParentsTrust",
   setup() {
     const reasons = [
-      { title: "Professional coaches",           image: "coaches.png" },
+      { title: "Professional coaches",           image: "professional.png" },
       { title: "Small group sizes",              image: "small.png" },
       { title: "Fully equipped facility",        image: "fully.png" },
       { title: "Variety of training options",    image: "variety.png" },
