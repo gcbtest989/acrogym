@@ -2,7 +2,7 @@
   <section class="hero" id="home">
 
     <div class="hero-bg">
-      <video autoplay muted loop playsinline poster="/img/header.png">
+      <video autoplay muted loop playsinline>
         <source :src="'/video/header_video.mp4'" type="video/mp4" />
       </video>
       <div class="overlay"></div>
