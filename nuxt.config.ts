@@ -47,7 +47,7 @@ export default defineNuxtConfig({
         head: {
             title: 'Acrogym',
             meta: [
-                { name: 'description', content: 'Acrogym is a UAE-based company specializing in comprehensive software solutions, including frontend, backend, DevOps, infrastructure, and mobile services. We bring innovation and excellence to your digital projects.' }
+                { name: 'description', content: 'Developmental gymnastics & Professional acrobatics in Qatar.' }
             ],
             link: [
                 {
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
                 },
                 {
                     rel: 'canonical',
-                    href: `https://www.akrogym.org`
+                    href: `https://www.acrogym.org`
                 },
                 {
                     rel: "stylesheet",

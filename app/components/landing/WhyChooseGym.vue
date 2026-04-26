@@ -17,7 +17,6 @@
             <i :class="['mdi', benefit.icon]"></i>
           </div>
           <h3 class="benefit-title">{{ benefit.title }}</h3>
-          <p class="benefit-description">{{ benefit.description }}</p>
         </div>
       </div>
     </div>
@@ -31,46 +30,14 @@ export default defineComponent({
   name: "WhyChooseGym",
   setup() {
     const benefits = [
-      {
-        title: "Coordination",
-        description: "Improves balance, body control, and overall movement",
-        icon: "mdi-run-fast"
-      },
-      {
-        title: "Strength",
-        description: "Builds strong muscles and endurance",
-        icon: "mdi-arm-flex"
-      },
-      {
-        title: "Flexibility",
-        description: "Increases joint mobility and prevents muscle stiffness",
-        icon: "mdi-human-handsup"
-      },
-      {
-        title: "Posture",
-        description: "Promotes proper alignment",
-        icon: "mdi-human-male"
-      },
-      {
-        title: "Balance",
-        description: "Teaches body awareness, safe landing, and positioning",
-        icon: "mdi-scale-balance"
-      },
-      {
-        title: "Confidence",
-        description: "Mastering new skills builds courage and motivation",
-        icon: "mdi-medal-outline"
-      },
-      {
-        title: "Discipline",
-        description: "Encourages focus, listening, and structured learning",
-        icon: "mdi-brain"
-      },
-      {
-        title: "Foundation",
-        description: "Supports performance in dance, acrobatics, sports, and more",
-        icon: "mdi-gymnastics"
-      }
+      { title: "Coordination", icon: "mdi-run-fast" },
+      { title: "Strength",     icon: "mdi-arm-flex" },
+      { title: "Flexibility",  icon: "mdi-human-handsup" },
+      { title: "Posture",      icon: "mdi-human-male" },
+      { title: "Balance",      icon: "mdi-scale-balance" },
+      { title: "Confidence",   icon: "mdi-medal-outline" },
+      { title: "Discipline",   icon: "mdi-brain" },
+      { title: "Foundation",   icon: "mdi-gymnastics" },
     ];
 
     return { benefits };
@@ -94,7 +61,7 @@ export default defineComponent({
 
   .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 
     .eyebrow {
       color: $accent-primary;
@@ -134,59 +101,52 @@ export default defineComponent({
 
   .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
 
-    @media (max-width: 576px) {
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 577px) {
-      .benefit-card:last-child:nth-child(odd) {
-        grid-column: 1 / -1;
-        max-width: calc(50% - 1.25rem);
-        margin: 0 auto;
-      }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
     }
 
     .benefit-card {
       background: rgba($surface-dark, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 24px;
-      padding: 1.5rem;
+      border-radius: 16px;
+      padding: 1.25rem 1rem;
       text-align: center;
       backdrop-filter: blur(10px);
-      transition: all 0.35s ease;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
 
       &:hover {
-        transform: translateY(-5px);
-        background: rgba($surface-dark, 0.6);
+        transform: translateY(-4px);
         border-color: rgba($accent-primary, 0.3);
+        background: rgba($surface-dark, 0.7);
 
         .icon-wrapper {
           color: $accent-primary;
-          transform: scale(1.1);
+          transform: scale(1.15);
         }
       }
 
       .icon-wrapper {
-        font-size: 3.5rem;
+        font-size: 2rem;
         color: $accent-tertiary;
-        margin-bottom: 1.5rem;
         transition: all 0.3s ease;
+        line-height: 1;
       }
 
       .benefit-title {
-        font-size: 1.5rem;
+        font-size: 0.9rem;
         font-weight: 700;
-        margin-bottom: 0.75rem;
         color: $text-primary;
-      }
-
-      .benefit-description {
-        font-size: 1rem;
-        color: $text-secondary;
-        line-height: 1.6;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin: 0;
       }
     }
   }

@@ -16,7 +16,7 @@
               class="card-bg"
               :style="{ backgroundImage: `url('/img/${reason.image}')` }"
             ></div>
-            <div class="card-overlay"></div>
+            <div class="card-gradient"></div>
             <div class="card-inner">
               <h2 class="card-title">{{ reason.title.toUpperCase() }}</h2>
             </div>
@@ -35,12 +35,12 @@ export default defineComponent({
   name: "ParentsTrust",
   setup() {
     const reasons = [
-      { title: "Professional coaches",         image: "coaches.png" },
-      { title: "Small group sizes",            image: "small.png" },
-      { title: "Fully equipped facility",      image: "fully.png" },
-      { title: "Variety of training options",  image: "variety.png" },
+      { title: "Professional coaches",           image: "coaches.png" },
+      { title: "Small group sizes",              image: "small.png" },
+      { title: "Fully equipped facility",        image: "fully.png" },
+      { title: "Variety of training options",    image: "variety.png" },
       { title: "Safe and supported environment", image: "safe.png" },
-      { title: "Years of experience",          image: "years.png" },
+      { title: "Years of experience",            image: "years.png" },
     ];
 
     return { reasons };
@@ -116,70 +116,66 @@ export default defineComponent({
 
     .trust-card {
       position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 24px;
-      padding: 2.5rem;
       overflow: hidden;
       transition: all 0.35s ease;
-      text-align: center;
       cursor: default;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      min-height: 180px;
+      min-height: 220px;
 
-      // — background image layer
+      // — background image layer, full visibility
       .card-bg {
         position: absolute;
         inset: 0;
         background-size: cover;
         background-position: center;
-        opacity: 0.15;
-        transition: opacity 0.35s ease;
+        opacity: 1;
+        transition: transform 0.35s ease;
         border-radius: 24px;
       }
 
-      // — dark overlay on hover
-      .card-overlay {
+      // — gradient only at the bottom
+      .card-gradient {
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0);
-        transition: background 0.35s ease;
+        background: linear-gradient(
+          to top,
+          rgba($bg-dark, 0.95) 0%,
+          rgba($bg-dark, 0.5) 35%,
+          rgba($bg-dark, 0) 65%
+        );
         border-radius: 24px;
       }
 
       .card-inner {
         position: relative;
         z-index: 1;
-        transition: transform 0.35s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        text-align: center;
       }
 
       .card-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 700;
         color: $accent-primary;
         transition: font-size 0.35s ease;
+        letter-spacing: 0.05em;
       }
 
       // — hover state
       &:hover {
+        border-color: rgba($accent-primary, 0.3);
+
         .card-bg {
-          opacity: 0.25;
-        }
-
-        .card-overlay {
-          background: rgba(0, 0, 0, 0.45);
-        }
-
-        .card-inner {
-          transform: translateY(-5px);
+          transform: scale(1.05);
         }
 
         .card-title {
-          font-size: 1.75rem;
+          font-size: 1.15rem;
         }
       }
     }
