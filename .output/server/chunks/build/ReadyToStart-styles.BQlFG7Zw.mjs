@@ -1,7 +1,0 @@
-const ReadyToStart_vue_vue_type_style_index_0_scoped_48737ef8_lang = ".ready-to-start[data-v-48737ef8]{background:#38bdf833;border-top:1px solid hsla(0,0%,100%,.1);padding:4rem 0;text-align:center}.ready-to-start .headline[data-v-48737ef8]{color:#fff;font-family:Montserrat,sans-serif;font-size:2rem;font-weight:400;line-height:1.4;margin:0 auto 3rem;max-width:800px}@media(max-width:768px){.ready-to-start .headline[data-v-48737ef8]{font-size:1.6rem}}@media(max-width:480px){.ready-to-start .headline[data-v-48737ef8]{font-size:1.4rem}}.ready-to-start .cta-group[data-v-48737ef8]{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}.ready-to-start .cta-group .btn[data-v-48737ef8]{border-radius:16px;font-size:1rem;font-weight:600;letter-spacing:.05em;padding:1rem 2rem;text-transform:uppercase;transition:all .3s ease}.ready-to-start .cta-group .btn.btn-primary[data-v-48737ef8]{background:#f37021;border:none;box-shadow:0 4px 15px #f3702166;color:#fff}.ready-to-start .cta-group .btn.btn-primary[data-v-48737ef8]:hover{background:#df5b0c;box-shadow:0 6px 20px #f3702199;transform:translateY(-2px)}.ready-to-start .cta-group .btn.btn-outline[data-v-48737ef8]{background:transparent;border:2px solid hsla(0,0%,100%,.3);color:#fff}.ready-to-start .cta-group .btn.btn-outline[data-v-48737ef8]:hover{background:#38bdf81a;border-color:#38bdf8;transform:translateY(-2px)}";
-
-const ReadyToStartStyles_BQlFG7Zw = [
-  ReadyToStart_vue_vue_type_style_index_0_scoped_48737ef8_lang
-];
-
-export { ReadyToStartStyles_BQlFG7Zw as default };
