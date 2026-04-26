@@ -2,11 +2,12 @@
   <section class="why-choose-gym" id="benefits">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Our Philosophy</span>
+        <span class="eyebrow">Benefits</span>
         <h2 class="title">Why Choose Developmental Gymnastics?</h2>
         <div class="accent-line"></div>
         <p class="subtitle">
           Our programs are designed to unlock your child's full potential in a safe, comfortable environment.
+          Developmental gymnastics supports a child's overall physical and personal growth.
         </p>
       </div>
 
@@ -31,24 +32,44 @@ export default defineComponent({
   setup() {
     const benefits = [
       {
-        title: "Physical Power",
-        description: "Develops strength, flexibility, and proper posture.",
-        icon: "mdi-arm-flex"
-      },
-      {
         title: "Coordination",
-        description: "Improves balance and endurance.",
+        description: "Improves balance, body control, and overall movement",
         icon: "mdi-run-fast"
       },
       {
-        title: "Mental Growth",
-        description: "Builds focus, discipline, and emotional management.",
-        icon: "mdi-brain"
+        title: "Strength",
+        description: "Builds strong muscles and endurance",
+        icon: "mdi-arm-flex"
+      },
+      {
+        title: "Flexibility",
+        description: "Increases joint mobility and prevents muscle stiffness",
+        icon: "mdi-human-handsup"
+      },
+      {
+        title: "Posture",
+        description: "Promotes proper alignment",
+        icon: "mdi-human-male"
+      },
+      {
+        title: "Balance",
+        description: "Teaches body awareness, safe landing, and positioning",
+        icon: "mdi-scale-balance"
       },
       {
         title: "Confidence",
-        description: "Boosts self-esteem through every new victory.",
-        icon: "mdi-star-circle"
+        description: "Mastering new skills builds courage and motivation",
+        icon: "mdi-medal-outline"
+      },
+      {
+        title: "Discipline",
+        description: "Encourages focus, listening, and structured learning",
+        icon: "mdi-brain"
+      },
+      {
+        title: "Foundation",
+        description: "Supports performance in dance, acrobatics, sports, and more",
+        icon: "mdi-gymnastics"
       }
     ];
 
@@ -61,9 +82,9 @@ export default defineComponent({
 @use "~/assets/css/colors" as *;
 
 .why-choose-gym {
-  padding: 10rem 0;
-  background: $bg-dark;
+  padding: 4rem 0;
   position: relative;
+  background: $bg-dark;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   .container {
@@ -113,15 +134,19 @@ export default defineComponent({
 
   .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
-
-    @media (max-width: 992px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
 
     @media (max-width: 576px) {
       grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 577px) {
+      .benefit-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 1.25rem);
+        margin: 0 auto;
+      }
     }
 
     .benefit-card {

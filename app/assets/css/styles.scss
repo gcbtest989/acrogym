@@ -8,6 +8,10 @@
   font-display: swap;
 }
 
+section[id] {
+  scroll-margin-top: 50px; // replace with your actual navbar height
+}
+
 html,
 body {
     font-family: "Montserrat", sans-serif;

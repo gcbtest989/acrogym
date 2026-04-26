@@ -1,5 +1,5 @@
-$bg-dark: #0a0a0a;
-$surface-dark: #151515;
+$bg-dark: #28347f;              
+$surface-dark: #162f4a;         // lighter navy surface
 $accent-blue: #3b82f6;
 $accent-purple: #a855f7;
 $accent-teal: #14b8a6;
@@ -11,13 +11,9 @@ $gradient-2: linear-gradient(180deg, rgba($accent-blue, 0.1) 0%, rgba($accent-pu
 $gradient-3: linear-gradient(180deg, rgba($accent-purple, 0.1) 0%, rgba($accent-teal, 0.1) 100%);
 $gradient-4: linear-gradient(180deg, rgba($accent-teal, 0.1) 0%, rgba($bg-dark, 1) 100%);
 
-// Core Background
-$bg-dark: #0e2238;              // deep navy (safe & premium)
-$surface-dark: #162f4a;         // lighter navy surface
-
 // Brand Colors
-$accent-primary: #f97316;       // warm orange (energy & movement)
-$accent-secondary: #1e3a8a;     // structured dark blue
+$accent-primary: #f37021;       // warm orange (energy & movement)
+$accent-secondary: #28347f;     // structured dark blue
 $accent-tertiary: #38bdf8;      // soft light blue (children / freshness)
 
 // Text
@@ -26,3 +22,30 @@ $text-secondary: rgba(255, 255, 255, 0.8);
 
 // Gradients
 $gradient-main: linear-gradient(45deg, $accent-primary, $accent-tertiary);
+
+
+// NEW THEME SECTION
+// ─── Base Surfaces ───────────────────────────────────────────
+// $bg-dark: #ffffff;                  // main page background → white
+// $surface-dark: #f4f2ee;             // card/section surfaces → warm cream
+
+// // ─── Brand Colors ────────────────────────────────────────────
+// $accent-primary: #f37021;           // warm orange — keep as-is, it's perfect
+// $accent-secondary: #28347f;         // navy blue — now used as heading color
+// $accent-tertiary: #28347f;          // swap light blue → navy for icons & highlights
+
+// // ─── Text ────────────────────────────────────────────────────
+// $text-primary: #28347f;             // headings → deep navy
+// $text-secondary: #5a6a8a;           // body text → muted blue-grey (readable on white)
+
+// // ─── Accent Blues (kept for gradients) ───────────────────────
+// $accent-blue: #3b82f6;
+// $accent-purple: #a855f7;
+// $accent-teal: #14b8a6;
+
+// // ─── Gradients ───────────────────────────────────────────────
+// $gradient-main: linear-gradient(45deg, $accent-primary, $accent-secondary);
+// $gradient-1: linear-gradient(180deg, rgba(#ffffff, 1) 0%, rgba($accent-primary, 0.05) 100%);
+// $gradient-2: linear-gradient(180deg, rgba($accent-primary, 0.05) 0%, rgba($surface-dark, 1) 100%);
+// $gradient-3: linear-gradient(180deg, rgba($surface-dark, 1) 0%, rgba(#ffffff, 1) 100%);
+// $gradient-4: linear-gradient(180deg, rgba(#ffffff, 1) 0%, rgba($surface-dark, 1) 100%);

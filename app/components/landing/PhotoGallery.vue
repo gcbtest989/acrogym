@@ -84,14 +84,13 @@ const props = withDefaults(defineProps<{
   delay?: number
 }>(), {
   images: () => [
-    { src: '/img/gallery/gym1.jpeg', alt: 'Gym slide 1', caption: 'State-of-the-art Equipment' },
-    { src: '/img/gallery/gym2.jpeg', alt: 'Gym slide 2', caption: 'Professional Training Space' },
-    { src: '/img/gallery/gym3.jpeg', alt: 'Gym slide 3', caption: 'Modern Facilities' },
-    { src: '/img/gallery/gym4.jpeg', alt: 'Gym slide 4', caption: 'Expert Coaching' },
-    { src: '/img/gallery/gym5.jpeg', alt: 'Gym slide 5', caption: 'Your Fitness Journey Starts Here' },
-    { src: '/img/gallery/gym6.jpeg', alt: 'Gym slide 6', caption: 'Your Fitness Journey Starts Here' },
-    { src: '/img/gallery/gym7.jpeg', alt: 'Gym slide 7', caption: 'Your Fitness Journey Starts Here' },
-    { src: '/img/gallery/gym8.jpeg', alt: 'Gym slide 8', caption: 'Your Fitness Journey Starts Here' },
+    { src: '/img/gallery/gym1.png', alt: 'Gym slide 1', caption: 'State-of-the-art Equipment' },
+    { src: '/img/gallery/gym2.png', alt: 'Gym slide 2', caption: 'Professional Training Space' },
+    { src: '/img/gallery/gym3.png', alt: 'Gym slide 3', caption: 'Modern Facilities' },
+    { src: '/img/gallery/gym4.png', alt: 'Gym slide 4', caption: 'Expert Coaching' },
+    { src: '/img/gallery/gym5.png', alt: 'Gym slide 5', caption: 'Your Fitness Journey Starts Here' },
+    { src: '/img/gallery/gym6.png', alt: 'Gym slide 6', caption: 'Your Fitness Journey Starts Here' },
+    { src: '/img/gallery/gym7.png', alt: 'Gym slide 7', caption: 'Your Fitness Journey Starts Here' },
   ],
   autoplay: true,
   delay: 4000,
@@ -197,7 +196,7 @@ $ctrl-size:    48px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 11rem 1rem 0rem 1rem;
+  padding: 4rem 1rem 0rem 1rem;
   font-family: 'Segoe UI', system-ui, sans-serif;
 }
 

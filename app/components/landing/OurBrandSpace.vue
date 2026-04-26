@@ -3,25 +3,13 @@
     <div class="container">
 
       <div class="section-header">
-        <span class="eyebrow">Our Space</span>
-        <h2 class="title">Our Brand-New Space: Lagoona Mall</h2>
+        <span class="eyebrow">Find us</span>
+        <h2 class="title">Our Training Space</h2>
         <div class="accent-line"></div>
         <div class="section-header">
-          <p>Lagoona Mall</p>
-          <p>Entrance X, Floor X, Next to X</p>
-        </div>
-      </div>
-
-      <div class="features-row">
-        <div v-for="(feature, index) in features" :key="index" class="feature-item">
-          <div class="icon-wrapper">
-            <i :class="['mdi', feature.icon]"></i>
-          </div>
-
-          <div class="feature-text">
-            <h2>{{ feature.title }}</h2>
-            <p>{{ feature.description }}</p>
-          </div>
+          <p>A modern training facility designed to support high-quality <br>development, where children feel confident and inspired to grow.</p>
+          <br>
+          <p style="font-weight: 600;">📍 Lusail Expy, Lagoona Mall, 1st Floor </p>
         </div>
       </div>
     </div>
@@ -39,43 +27,10 @@ export default defineComponent({
   name: "OurBrandSpace",
 
   setup() {
-    const features = [
-      {
-        title: "Lots of Room to Move",
-        description: "Spacious areas for safe and free movement.",
-        icon: "mdi-vector-square"
-      },
-      {
-        title: "Trampolines",
-        description: "Fun and dynamic training equipment for agility.",
-        icon: "mdi-gymnastics"
-      },
-      {
-        title: "Modern Equipment",
-        description: "Brand-new tools for strength, flexibility, and coordination.",
-        icon: "mdi-dumbbell"
-      },
-      {
-        title: "Competition Prep Area",
-        description: "Dedicated space to prepare for events.",
-        icon: "mdi-trophy"
-      },
-      {
-        title: "Flexibility & Strength Zones",
-        description: "Focused areas for skill-specific training.",
-        icon: "mdi-human-handsup"
-      },
-      {
-        title: "Safe Training Environment",
-        description: "Soft flooring and carefully designed equipment for safe practice.",
-        icon: "mdi-shield-check"
-      }
-    ];
-
     const mapSrc =
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.915546653628!2d51.54074527622613!3d25.333417983898084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c4f87654321%3A0xabcdef1234567890!2s66%20Lusail%20Expy%2C%20Doha!5e0!3m2!1sen!2sqa!4v1700000000000!5m2!1sen!2sqa";
 
-    return { features, mapSrc };
+    return { mapSrc };
   }
 });
 </script>
@@ -84,8 +39,8 @@ export default defineComponent({
 @use "~/assets/css/colors" as *;
 
 .our-brand-space {
-  padding: 10rem 0 0;
-  background: $bg-dark;
+  padding: 4rem 0 0;
+  background: rgba($accent-tertiary, 0.1);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
   .container {

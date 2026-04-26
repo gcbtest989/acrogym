@@ -49,7 +49,7 @@ export default defineNuxtConfig({
                 {
                     rel: 'icon',
                     type: 'image/png',
-                    href: '/favicon.jpg'
+                    href: '/favicon.png'
                 },
                 {
                     rel: 'canonical',

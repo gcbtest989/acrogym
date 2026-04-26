@@ -2,7 +2,9 @@
   <section class="hero" id="home">
 
     <div class="hero-bg">
-      <img src="/img/banner.jpeg" alt="Gymnastics Background" />
+      <video autoplay muted loop playsinline poster="/img/header.png">
+        <source src="/video/header_video.mp4" type="video/mp4" />
+      </video>
       <div class="overlay"></div>
     </div>
 
@@ -13,12 +15,15 @@
         </h1>
 
         <div class="logo-wrapper">
-          <h2 class="brand-name">Developmental Gymnastics & Professional Actobatics</h2>
+          <h2 class="brand-name">Developmental Gymnastics & Professional Acrobatics</h2>
         </div>
         <div class="cta-group">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSe23_qFm0_6JOlsg9SSbCHhRGeOHAyjadBtclmwoUnSG4kWyw/viewform"
             target="_blank" class="btn btn-primary">
-            Book Your First Lesson
+            Try Now
+          </a>
+          <a href="#programs" class="btn btn-secondary">
+            Explore Our Programs
           </a>
         </div>
       </div>
@@ -45,7 +50,7 @@ export default defineComponent({
 @use "sass:color";
 
 .acro {
-  color: $accent-secondary;
+  color: $bg-dark;
 }
 
 .gym {
@@ -61,25 +66,26 @@ export default defineComponent({
   justify-content: center;
   overflow: hidden;
   color: $text-primary;
+  z-index: 1;
 
   .hero-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
 
-    img {
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%; // ← pulls the frame up so heads aren't cut
-      filter: brightness(0.35);
+      object-position: center 0%;
     }
 
     .overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom,
-          rgba($bg-dark, 0.5) 0%,
+          rgba($bg-dark, 0) 0%,
+          rgba($bg-dark, 0.4) 40%,
           rgba($bg-dark, 0.9) 100%);
     }
   }
@@ -87,7 +93,7 @@ export default defineComponent({
   .hero-content {
     text-align: center;
     max-width: 900px;
-    padding: 0 2rem;
+    padding: 0 2rem 5rem;
     z-index: 1;
     animation: fadeIn 1.2s ease-out;
 
@@ -97,7 +103,7 @@ export default defineComponent({
       .brand-name {
         font-size: 2rem;
         font-weight: 700;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         color: $text-primary;
       }
@@ -107,14 +113,14 @@ export default defineComponent({
       font-size: 3.8rem;
       line-height: 1.1;
       margin-bottom: 1.5rem;
-      font-weight: 800;
+      font-weight: 400;
 
       @media (max-width: 768px) {
         font-size: 2.8rem;
       }
 
       @media (max-width: 600px) {
-        font-size: 2rem;
+        font-size: 2.8rem;
       }
 
       .gradient-text {
@@ -142,6 +148,8 @@ export default defineComponent({
     .cta-group {
       display: flex;
       justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
   }
 }
@@ -165,6 +173,19 @@ export default defineComponent({
     &:hover {
       background: color.scale($accent-primary, $lightness: -10%);
       box-shadow: 0 6px 30px rgba($accent-primary, 0.6);
+      transform: translateY(-3px);
+    }
+  }
+
+  &.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: none;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: white;
       transform: translateY(-3px);
     }
   }

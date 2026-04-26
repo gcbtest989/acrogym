@@ -41,7 +41,7 @@
               </div>
 
               <div class="achievement-card">
-                
+                <i class="mdi mdi-star-circle" style="font-size: 1.6rem"></i>
                 Awarded the Order of Valor (3rd Degree) for outstanding achievements
               </div>
             </div>
@@ -53,9 +53,7 @@
               </p>
               <span class="quote-author">— Kristina</span>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -83,7 +81,7 @@ export default defineComponent({
 }
 
 .coach {
-  padding: 10rem 0;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
 

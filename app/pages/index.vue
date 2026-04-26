@@ -10,21 +10,25 @@
 
         <nav class="navbar">
             <div class="nav-container">
-                <a href="#home"><img src="/img/acro-logo-simple-coloured.png" alt="Acrogym Logo" class="nav-logo" /></a>
+                <a href="#home"><img src="/img/acro-logo-simple-light.png" alt="Acrogym Logo" class="nav-logo" /></a>
 
                 <!-- Hamburger button -->
-                <button class="nav-toggle" @click="menuOpen = !menuOpen" :class="{ open: menuOpen }" aria-label="Toggle menu">
+                <button class="nav-toggle" @click="menuOpen = !menuOpen" :class="{ open: menuOpen }"
+                    aria-label="Toggle menu">
+                    <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
                 <div class="nav-links" :class="{ open: menuOpen }">
-                    <a href="#coach"    @click="menuOpen = false">The Coach</a>
-                    <a href="#trust"    @click="menuOpen = false">Why Us</a>
-                    <a href="#benefits" @click="menuOpen = false">Programs</a>
-                    <a href="#space"    @click="menuOpen = false">Find us</a>
-                    <a href="#contact"    @click="menuOpen = false">Contact</a>
+                    <a href="#coach" @click="menuOpen = false">The Coach</a>
+                    <a href="#benefits" @click="menuOpen = false">Benefits</a>
+                    <a href="#programs" @click="menuOpen = false">Programs</a>
+                    <a href="#trust" @click="menuOpen = false">Why Us</a>    
+                    <!-- <a href="#competitions" @click="menuOpen = false">Comps</a> -->
+                    <a href="#space" @click="menuOpen = false">Find us</a>
+                    <a href="#contact" @click="menuOpen = false">Contact</a>
                 </div>
             </div>
         </nav>
@@ -32,17 +36,19 @@
         <landing-hero />
         <landing-photo-gallery />
         <landing-meet-coach />
-        <landing-parents-trust />
         <landing-why-choose-gym />
+        <landing-programs />
+        <landing-parents-trust />
+        <landing-competitions />
         <landing-our-brand-space />
-        <landing-contact/>
+        <landing-contact />
         <landing-ready-to-start />
 
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-brand">
-                        <img src="/img/acro-logo-simple-coloured.png" alt="Acrogym Logo" class="footer-logo" />
+                        <img src="/img/acro-logo-simple-light.png" alt="Acrogym Logo" class="footer-logo" />
                         <p>
                             Helping children grow stronger, more confident, and fearless through movement.
                         </p>
@@ -77,7 +83,7 @@ useHead({
         {
             rel: 'icon',
             type: 'image/png',
-            href: '/favicon.jpg'
+            href: '/favicon.png'
         }
     ]
 })
@@ -147,8 +153,13 @@ useHead({
 }
 
 @keyframes float {
-    from { transform: translate(0, 0) scale(1); }
-    to   { transform: translate(100px, 50px) scale(1.1); }
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(100px, 50px) scale(1.1);
+    }
 }
 
 /* ── Navbar ── */
@@ -166,15 +177,17 @@ useHead({
     .nav-container {
         max-width: 2200px;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0 2rem 0 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
     .nav-logo {
-        height: 40px;
+        height: 100px; // make it taller
         width: auto;
+        margin: -30px 0; // pull it back so it doesn't push the navbar taller
+        object-fit: contain;
     }
 
     .nav-links {
@@ -218,9 +231,17 @@ useHead({
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    &.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    &.open span:nth-child(2) { opacity: 0; }
-    &.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    &.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    &.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    &.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 }
 
 /* ── Mobile nav ── */
@@ -234,7 +255,8 @@ useHead({
 
         .nav-links {
             position: fixed;
-            top: 73px; /* navbar height */
+            top: 73px;
+            /* navbar height */
             left: 0;
             right: 0;
             flex-direction: column;
@@ -247,7 +269,7 @@ useHead({
 
 
             &.open {
-                max-height: 320px;
+                max-height: 520px;
             }
 
             a {
@@ -276,7 +298,9 @@ useHead({
 
     .footer-brand {
         .footer-logo {
-            height: 40px;
+            margin: -50px 0;
+            height: 170px;
+            width: auto;
             margin-bottom: 1rem;
         }
 

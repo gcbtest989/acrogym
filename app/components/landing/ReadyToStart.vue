@@ -28,8 +28,8 @@ export default defineComponent({
 @use "sass:color";
 
 .ready-to-start {
-  padding: 8rem 0;
-  background: $accent-secondary; // dark blue background
+  padding: 4rem 0;
+  background: rgba($accent-tertiary, 0.2);
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 

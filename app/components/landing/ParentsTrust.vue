@@ -12,9 +12,13 @@
 
         <div class="trust-cards">
           <div v-for="(reason, index) in reasons" :key="index" class="trust-card">
+            <div
+              class="card-bg"
+              :style="{ backgroundImage: `url('/img/${reason.image}')` }"
+            ></div>
+            <div class="card-overlay"></div>
             <div class="card-inner">
               <h2 class="card-title">{{ reason.title.toUpperCase() }}</h2>
-              <p class="card-description">{{ reason.description }}</p>
             </div>
           </div>
         </div>
@@ -31,18 +35,12 @@ export default defineComponent({
   name: "ParentsTrust",
   setup() {
     const reasons = [
-      {
-        title: "Individualized Approach",
-        description: "Finding the right approach for every child, respecting their pace and personality."
-      },
-      {
-        title: "Fun & Engaging Training",
-        description: "Turning each session into an exciting game, where learning feels like play."
-      },
-      {
-        title: "Self-Belief & Confidence",
-        description: "Helping children believe in themselves and take pride in their progress."
-      }
+      { title: "Professional coaches",         image: "Coaches.png" },
+      { title: "Small group sizes",            image: "small group sizes.png" },
+      { title: "Fully equipped facility",      image: "fully equipped facility.png" },
+      { title: "Variety of training options",  image: "variety of training.png" },
+      { title: "Safe and supported environment", image: "safe and supported environment.png" },
+      { title: "Years of experience",          image: "years of experience.png" },
     ];
 
     return { reasons };
@@ -54,9 +52,10 @@ export default defineComponent({
 @use "~/assets/css/colors" as *;
 
 .parents-trust {
-  padding: 10rem 0;
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
+  background: $bg-dark;
 
   .grid-overlay {
     position: absolute;
@@ -116,35 +115,72 @@ export default defineComponent({
     }
 
     .trust-card {
-      background: rgba($surface-dark, 0.5);
+      position: relative;
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 24px;
       padding: 2.5rem;
-      backdrop-filter: blur(10px);
+      overflow: hidden;
       transition: all 0.35s ease;
+      text-align: center;
       cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
 
-      .card-inner {
-        transition: transform 0.35s ease;
+      // — background image layer
+      .card-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        transition: opacity 0.35s ease;
+        border-radius: 24px;
       }
 
-      &:hover .card-inner {
-        transform: translateY(-5px);
+      // — dark overlay on hover
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.35s ease;
+        border-radius: 24px;
+      }
+
+      .card-inner {
+        position: relative;
+        z-index: 1;
+        transition: transform 0.35s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .card-title {
         font-size: 1.5rem;
         font-weight: 700;
-        margin-bottom: 1rem;
-        background: linear-gradient(45deg, $accent-primary, $accent-tertiary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: $accent-primary;
+        transition: font-size 0.35s ease;
       }
 
-      .card-description {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: $text-secondary;
+      // — hover state
+      &:hover {
+        .card-bg {
+          opacity: 0.25;
+        }
+
+        .card-overlay {
+          background: rgba(0, 0, 0, 0.45);
+        }
+
+        .card-inner {
+          transform: translateY(-5px);
+        }
+
+        .card-title {
+          font-size: 1.75rem;
+        }
       }
     }
   }

@@ -11,11 +11,6 @@
 <script>
 export default {
     props: {
-        phoneNumber: {
-            type: String,
-            default: "+974 39930533",
-            required: true
-        },
         message: {
             type: String,
             default: 'Hello! I have a question.'
@@ -24,7 +19,7 @@ export default {
     computed: {
         whatsappLink() {
             const encodedMessage = encodeURIComponent(this.message);
-            return `https://wa.me/${this.phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`;
+            return `https://wa.me/+97470859382?text=${encodedMessage}`;
         }
     }
 }
