@@ -7,6 +7,10 @@ export default defineNuxtConfig({
         port: 3021
     },
 
+    vite: {
+        assetsInclude: ['**/*.mp4']
+    },
+
     nitro: {
         prerender: {
             routes: [
