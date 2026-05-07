@@ -9,7 +9,8 @@
         <div class="section-header">
           <p>A modern training facility designed to support high-quality <br>development, where children feel confident and inspired to grow.</p>
           <br>
-          <p style="font-weight: 600;">📍 Lusail Expy, Lagoona Mall, 1st Floor </p>
+          <p style="font-weight: 600; font-size: 30px;">COMING SOON</p>
+          <!-- <p style="font-weight: 600;">📍 Lusail Expy, Lagoona Mall, 1st Floor </p> -->
         </div>
       </div>
     </div>
