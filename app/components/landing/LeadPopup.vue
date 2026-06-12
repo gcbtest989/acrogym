@@ -74,6 +74,7 @@ const childAge = ref('')
 
 let savedBodyOverflow = ''
 let forceShow = false
+let autoTimer: ReturnType<typeof setTimeout> | undefined
 
 /* localStorage can be unavailable (private mode) — then the popup simply shows on every visit */
 function alreadySeen(): boolean {
@@ -84,6 +85,7 @@ function rememberSeen(): void {
 }
 
 function openPopup(): void {
+    if (isOpen.value) return
     savedBodyOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     isOpen.value = true
@@ -100,19 +102,29 @@ function onKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape') closePopup()
 }
 
+/* any CTA on the page can open the form:
+   window.dispatchEvent(new CustomEvent('acro:open-lead-form')) */
+function onOpenRequest(): void {
+    if (autoTimer) clearTimeout(autoTimer)
+    openPopup()
+}
+
 onMounted(() => {
     /* QA override: ?acroform=show forces the popup and does not touch the first-visit flag */
     forceShow = /[?&]acroform=show/.test(window.location.search)
     if (forceShow) {
-        setTimeout(openPopup, 300)
+        autoTimer = setTimeout(openPopup, 300)
     } else if (!alreadySeen()) {
-        setTimeout(openPopup, SHOW_DELAY_MS)
+        autoTimer = setTimeout(openPopup, SHOW_DELAY_MS)
     }
     document.addEventListener('keydown', onKeydown)
+    window.addEventListener('acro:open-lead-form', onOpenRequest)
 })
 
 onBeforeUnmount(() => {
+    if (autoTimer) clearTimeout(autoTimer)
     document.removeEventListener('keydown', onKeydown)
+    window.removeEventListener('acro:open-lead-form', onOpenRequest)
     if (isOpen.value) document.body.style.overflow = savedBodyOverflow
 })
 

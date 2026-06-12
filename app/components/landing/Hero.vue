@@ -18,10 +18,9 @@
           <h2 class="brand-name">Developmental Gymnastics & Professional Acrobatics</h2>
         </div>
         <div class="cta-group">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe23_qFm0_6JOlsg9SSbCHhRGeOHAyjadBtclmwoUnSG4kWyw/viewform"
-            target="_blank" class="btn btn-primary">
+          <button type="button" class="btn btn-primary" @click="openLeadForm">
             Try Now
-          </a>
+          </button>
           <a href="#programs" class="btn btn-secondary">
             Explore Our Programs
           </a>
@@ -41,7 +40,12 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "HeroSection"
+  name: "HeroSection",
+  methods: {
+    openLeadForm(): void {
+      window.dispatchEvent(new CustomEvent("acro:open-lead-form"));
+    }
+  }
 });
 </script>
 
@@ -160,8 +164,10 @@ export default defineComponent({
   font-weight: 700;
   transition: all 0.3s ease;
   font-size: 1rem;
+  font-family: inherit;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  cursor: pointer;
   display: inline-block;
 
   &.btn-primary {
