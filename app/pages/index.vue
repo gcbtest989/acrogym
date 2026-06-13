@@ -57,6 +57,8 @@
                     </div>
                     <div class="footer-copy">
                         &copy; {{ new Date().getFullYear() }} Acrogym FZCO. All rights reserved.
+                        <span class="footer-sep">·</span>
+                        <a href="/privacy" class="footer-link">Privacy Policy</a>
                     </div>
                 </div>
             </div>
@@ -316,6 +318,21 @@ useHead({
     .footer-copy {
         color: rgba(255, 255, 255, 0.6);
         font-size: 0.875rem;
+    }
+
+    .footer-sep {
+        margin: 0 0.4rem;
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-link {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $accent-primary;
+        }
     }
 }
 </style>

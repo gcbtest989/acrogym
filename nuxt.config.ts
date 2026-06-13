@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     nitro: {
         prerender: {
             routes: [
-                '/'
+                '/',
+                '/privacy'
             ]
         },
     },
@@ -51,6 +52,7 @@ export default defineNuxtConfig({
 
     routeRules: {
         '/': { prerender: true },
+        '/privacy': { prerender: true },
         // short marketing link for the Instagram bio → opens the popup + tags lead source=instagram
         '/book': { redirect: '/?acroform=show&utm_source=instagram' },
     },
