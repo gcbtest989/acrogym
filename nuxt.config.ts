@@ -65,6 +65,13 @@ export default defineNuxtConfig({
                     rel: "stylesheet",
                     href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
                 }
+            ],
+            script: [
+                // Vercel Web Analytics (privacy-friendly, no cookies). Data flows once
+                // Web Analytics is enabled for this project in the Vercel dashboard.
+                // The stub queues events until /_vercel/insights/script.js loads.
+                { innerHTML: 'window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};', type: 'text/javascript' },
+                { src: '/_vercel/insights/script.js', defer: true }
             ]
         }
     },
