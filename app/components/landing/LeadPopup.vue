@@ -195,8 +195,9 @@ async function submitLead(): Promise<void> {
     inset: 0;
     z-index: 99999;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    overflow-y: auto; /* tall forms scroll the overlay, not the card */
     padding: 20px;
     box-sizing: border-box;
     font-family: "Montserrat", system-ui, -apple-system, sans-serif;
@@ -220,11 +221,10 @@ async function submitLead(): Promise<void> {
 }
 .acro-lead-form__card {
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* clips the decorative glow blobs; no phantom scroll */
     width: 100%;
     max-width: 460px;
-    max-height: 92vh;
-    overflow-y: auto;
+    margin: auto; /* centers in the overlay when it fits, top stays reachable when tall */
     padding: 40px 36px 36px;
     border-radius: 24px;
     background: linear-gradient(160deg, #28347F 0%, #1A2356 100%);
