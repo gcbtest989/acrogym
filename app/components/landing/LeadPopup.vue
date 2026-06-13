@@ -1,7 +1,7 @@
 <template>
     <div class="acro-lead-form" :class="{ 'is-open': isOpen }" @click.self="closePopup">
         <div class="acro-lead-form__card" role="dialog" aria-modal="true" aria-label="AcroGym trial class form">
-            <button class="acro-lead-form__close" type="button" aria-label="Close" @click="closePopup">&times;</button>
+            <button v-if="!submitted" class="acro-lead-form__close" type="button" aria-label="Close" @click="closePopup">&times;</button>
 
             <template v-if="!submitted">
                 <img class="acro-lead-form__logo" src="/img/acro-logo-simple-light.png" alt="AcroGym">
