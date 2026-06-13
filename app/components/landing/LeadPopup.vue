@@ -183,10 +183,9 @@ async function submitLead(): Promise<void> {
         })
         if (response.ok) {
             submitted.value = true
-            /* Vercel Analytics conversion event (no-op until analytics is enabled) */
-            ;(window as unknown as { va?: (...a: unknown[]) => void }).va?.('event', {
-                name: 'lead_submitted',
-                data: { source: leadSource || 'website_form' }
+            /* GA4 conversion event (no-op until gtagId is configured) */
+            ;(window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'generate_lead', {
+                source: leadSource || 'website_form'
             })
             /* gentle auto-close; visitor can also close via the button or the X */
             autoTimer = setTimeout(closePopup, 5000)

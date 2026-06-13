@@ -19,6 +19,16 @@ export default defineNuxtConfig({
         },
     },
 
+    // Google Analytics 4 — read by app/plugins/gtag.client.ts.
+    // Measurement ID is public (appears in page source), so it's fine in the repo.
+    // The live site is built from this repo by the hosting Vercel project, so the
+    // ID must live here in code (not as a dashboard env var we can't reach).
+    runtimeConfig: {
+        public: {
+            gtagId: process.env.NUXT_PUBLIC_GTAG_ID || 'G-PMEXF9N7SS'
+        }
+    },
+
     devtools: { enabled: process.env.NODE_ENV === 'development' },
 
     modules: [
@@ -65,13 +75,6 @@ export default defineNuxtConfig({
                     rel: "stylesheet",
                     href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
                 }
-            ],
-            script: [
-                // Vercel Web Analytics (privacy-friendly, no cookies). Data flows once
-                // Web Analytics is enabled for this project in the Vercel dashboard.
-                // The stub queues events until /_vercel/insights/script.js loads.
-                { innerHTML: 'window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};', type: 'text/javascript' },
-                { src: '/_vercel/insights/script.js', defer: true }
             ]
         }
     },
