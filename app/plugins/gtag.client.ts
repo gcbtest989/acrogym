@@ -18,6 +18,16 @@ export default defineNuxtPlugin(() => {
     }
   }
 
+  // Honor a prior "Decline" from the cookie notice — skip GA entirely.
+  if (typeof window !== 'undefined') {
+    try {
+      if (localStorage.getItem('acro_cookie_consent') === 'denied') {
+        ;(window as unknown as Record<string, boolean>)['ga-disable-' + gtagId] = true
+        return { provide: { gtag: () => {} } }
+      }
+    } catch { /* localStorage unavailable — proceed with GA on by default */ }
+  }
+
   // Initialize dataLayer immediately
   if (typeof window !== 'undefined') {
     window.dataLayer = window.dataLayer || []

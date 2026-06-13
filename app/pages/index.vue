@@ -44,6 +44,7 @@
         <landing-contact />
         <landing-ready-to-start />
         <landing-lead-popup />
+        <landing-cookie-notice />
 
         <footer class="footer">
             <div class="container">
