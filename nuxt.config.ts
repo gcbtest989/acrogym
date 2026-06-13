@@ -41,8 +41,8 @@ export default defineNuxtConfig({
 
     routeRules: {
         '/': { prerender: true },
-        // short marketing link (Instagram bio etc.) → opens the site with the lead popup
-        '/book': { redirect: '/?acroform=show' },
+        // short marketing link for the Instagram bio → opens the popup + tags lead source=instagram
+        '/book': { redirect: '/?acroform=show&utm_source=instagram' },
     },
 
     app: {

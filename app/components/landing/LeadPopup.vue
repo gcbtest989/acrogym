@@ -64,6 +64,15 @@ const ENDPOINT = 'https://hook.acrogym.org/webhook/acrogym-lead'
 const STORAGE_KEY = 'acro_lead_form_seen'
 const SHOW_DELAY_MS = 1500
 
+/*
+  Lead attribution. The webhook defaults a missing/empty source to "website_form",
+  so the regular form must NOT send one. Visitors arriving via a marketing link
+  (e.g. /book → ?utm_source=instagram) are tagged with the matching value.
+  Only known values are forwarded — exact lowercase spelling matters (see the
+  attribution table in docs/website-form-integration.md). Add new channels here.
+*/
+const KNOWN_SOURCES = ['instagram']
+
 const isOpen = ref(false)
 const sending = ref(false)
 const submitted = ref(false)
@@ -75,6 +84,7 @@ const childAge = ref('')
 let savedBodyOverflow = ''
 let forceShow = false
 let autoTimer: ReturnType<typeof setTimeout> | undefined
+let leadSource = '' /* '' → website_form; set from utm_source when it's a known channel */
 
 /* localStorage can be unavailable (private mode) — then the popup simply shows on every visit */
 function alreadySeen(): boolean {
@@ -110,8 +120,14 @@ function onOpenRequest(): void {
 }
 
 onMounted(() => {
+    const params = new URLSearchParams(window.location.search)
+
+    /* attribution: forward utm_source only when it's a channel we know about */
+    const utm = (params.get('utm_source') || '').trim().toLowerCase()
+    if (KNOWN_SOURCES.includes(utm)) leadSource = utm
+
     /* QA override: ?acroform=show forces the popup and does not touch the first-visit flag */
-    forceShow = /[?&]acroform=show/.test(window.location.search)
+    forceShow = params.get('acroform') === 'show'
     if (forceShow) {
         autoTimer = setTimeout(openPopup, 300)
     } else if (!alreadySeen()) {
@@ -140,6 +156,7 @@ async function submitLead(): Promise<void> {
 
     const payload: Record<string, string> = { name: n, phone: p }
     if (a) payload.child_age = a
+    if (leadSource) payload.source = leadSource
 
     sending.value = true /* no double-submits */
     statusMessage.value = ''
