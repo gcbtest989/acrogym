@@ -158,6 +158,13 @@ async function submitLead(): Promise<void> {
         return
     }
 
+    /* a reachable number has at least 8 digits — blocks "974"-style dead leads.
+       The n8n webhook is the authoritative gate (checks digits after normalization). */
+    if (p.replace(/\D/g, '').length < 8) {
+        statusMessage.value = 'Please enter a valid phone number.'
+        return
+    }
+
     const payload: Record<string, string> = { name: n, phone: p }
     if (a) payload.child_age = a
     if (leadSource) payload.source = leadSource
