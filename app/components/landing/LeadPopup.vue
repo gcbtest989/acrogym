@@ -3,49 +3,53 @@
         <div class="acro-lead-form__card" role="dialog" aria-modal="true" aria-label="AcroGym trial class form">
             <button class="acro-lead-form__close" type="button" aria-label="Close" @click="closePopup">&times;</button>
 
-            <img class="acro-lead-form__logo" src="/img/acro-logo-simple-light.png" alt="AcroGym">
+            <template v-if="!submitted">
+                <img class="acro-lead-form__logo" src="/img/acro-logo-simple-light.png" alt="AcroGym">
 
-            <div class="acro-lead-form__badge">
-                <span class="acro-lead-form__badge-dot"></span>
-                Opening September 2026 &middot; The Pearl, Doha
-            </div>
-
-            <h3 class="acro-lead-form__title">Book Your First <span class="acro-lead-form__title-accent">Trial Class</span></h3>
-            <p class="acro-lead-form__subtitle">Flips, cartwheels and confidence &mdash; leave your number and we&rsquo;ll find the perfect time for your child&rsquo;s first visit.</p>
-
-            <ul class="acro-lead-form__benefits">
-                <li class="acro-lead-form__benefit"><span class="acro-lead-form__benefit-check">&#10003;</span>Ages 3&ndash;14</li>
-                <li class="acro-lead-form__benefit"><span class="acro-lead-form__benefit-check">&#10003;</span>Pro coaches</li>
-                <li class="acro-lead-form__benefit"><span class="acro-lead-form__benefit-check">&#10003;</span>Safety first</li>
-            </ul>
-
-            <form v-if="!submitted" class="acro-lead-form__form" @submit.prevent="submitLead">
-                <div class="acro-lead-form__field">
-                    <label class="acro-lead-form__label" for="acro-lead-name">Parent&rsquo;s name *</label>
-                    <input v-model="name" class="acro-lead-form__input" id="acro-lead-name" type="text"
-                        required maxlength="120" autocomplete="name" placeholder="Your name">
-                </div>
-                <div class="acro-lead-form__field">
-                    <label class="acro-lead-form__label" for="acro-lead-phone">Phone *</label>
-                    <input v-model="phone" class="acro-lead-form__input" id="acro-lead-phone" type="tel"
-                        required autocomplete="tel" inputmode="tel" placeholder="+974 5000 9999">
-                </div>
-                <div class="acro-lead-form__field">
-                    <label class="acro-lead-form__label" for="acro-lead-age">Child&rsquo;s age</label>
-                    <input v-model="childAge" class="acro-lead-form__input" id="acro-lead-age" type="text"
-                        maxlength="20" inputmode="numeric" placeholder="e.g. 6">
+                <div class="acro-lead-form__badge">
+                    <span class="acro-lead-form__badge-dot"></span>
+                    Opening September 2026 &middot; The Pearl, Doha
                 </div>
 
-                <button class="acro-lead-form__button" type="submit" :disabled="sending">
-                    {{ sending ? 'Sending…' : 'Book My Spot' }}
-                </button>
-                <p class="acro-lead-form__status" aria-live="polite">{{ statusMessage }}</p>
-                <p class="acro-lead-form__note">Takes 10 seconds &mdash; we&rsquo;ll call you back to arrange a time.</p>
-            </form>
+                <h3 class="acro-lead-form__title">Book Your First <span class="acro-lead-form__title-accent">Trial Class</span></h3>
+                <p class="acro-lead-form__subtitle">Flips, cartwheels and confidence &mdash; leave your number and we&rsquo;ll find the perfect time for your child&rsquo;s first visit.</p>
+
+                <ul class="acro-lead-form__benefits">
+                    <li class="acro-lead-form__benefit"><span class="acro-lead-form__benefit-check">&#10003;</span>Ages 3&ndash;14</li>
+                    <li class="acro-lead-form__benefit"><span class="acro-lead-form__benefit-check">&#10003;</span>Pro coaches</li>
+                    <li class="acro-lead-form__benefit"><span class="acro-lead-form__benefit-check">&#10003;</span>Safety first</li>
+                </ul>
+
+                <form class="acro-lead-form__form" @submit.prevent="submitLead">
+                    <div class="acro-lead-form__field">
+                        <label class="acro-lead-form__label" for="acro-lead-name">Parent&rsquo;s name *</label>
+                        <input v-model="name" class="acro-lead-form__input" id="acro-lead-name" type="text"
+                            required maxlength="120" autocomplete="name" placeholder="Your name">
+                    </div>
+                    <div class="acro-lead-form__field">
+                        <label class="acro-lead-form__label" for="acro-lead-phone">Phone *</label>
+                        <input v-model="phone" class="acro-lead-form__input" id="acro-lead-phone" type="tel"
+                            required autocomplete="tel" inputmode="tel" placeholder="+974 5000 9999">
+                    </div>
+                    <div class="acro-lead-form__field">
+                        <label class="acro-lead-form__label" for="acro-lead-age">Child&rsquo;s age</label>
+                        <input v-model="childAge" class="acro-lead-form__input" id="acro-lead-age" type="text"
+                            maxlength="20" inputmode="numeric" placeholder="e.g. 6">
+                    </div>
+
+                    <button class="acro-lead-form__button" type="submit" :disabled="sending">
+                        {{ sending ? 'Sending…' : 'Book My Spot' }}
+                    </button>
+                    <p class="acro-lead-form__status" aria-live="polite">{{ statusMessage }}</p>
+                    <p class="acro-lead-form__note">Takes 10 seconds &mdash; we&rsquo;ll call you back to arrange a time.</p>
+                </form>
+            </template>
 
             <div v-else class="acro-lead-form__success">
                 <div class="acro-lead-form__success-icon">&#10003;</div>
                 <p class="acro-lead-form__success-title">Thank you, we&rsquo;ll be in touch soon!</p>
+                <p class="acro-lead-form__success-text">We&rsquo;ll call you back shortly to arrange your child&rsquo;s first visit.</p>
+                <button class="acro-lead-form__success-close" type="button" @click="closePopup">Close</button>
             </div>
         </div>
     </div>
@@ -172,7 +176,8 @@ async function submitLead(): Promise<void> {
         })
         if (response.ok) {
             submitted.value = true
-            setTimeout(closePopup, 2500) /* auto-close after thanks */
+            /* gentle auto-close; visitor can also close via the button or the X */
+            autoTimer = setTimeout(closePopup, 5000)
         } else {
             statusMessage.value = 'Something went wrong, please try again.'
         }
@@ -441,12 +446,12 @@ async function submitLead(): Promise<void> {
 }
 .acro-lead-form__success {
     text-align: center;
-    padding: 28px 0 12px;
+    padding: 16px 0 8px;
 }
 .acro-lead-form__success-icon {
     width: 64px;
     height: 64px;
-    margin: 0 auto 18px;
+    margin: 0 auto 20px;
     border-radius: 50%;
     background: #F37021;
     color: #FFFFFF;
@@ -457,10 +462,36 @@ async function submitLead(): Promise<void> {
 }
 .acro-lead-form__success-title {
     margin: 0;
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 800;
     line-height: 1.35;
     color: #FFFFFF;
+}
+.acro-lead-form__success-text {
+    margin: 10px 0 0;
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+}
+.acro-lead-form__success-close {
+    display: inline-block;
+    margin: 26px auto 0;
+    padding: 12px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease;
+}
+.acro-lead-form__success-close:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.45);
 }
 @media (prefers-reduced-motion: reduce) {
     .acro-lead-form__card::before,
