@@ -1,6 +1,6 @@
 <template>
     <div class="acro-lead-form" :class="{ 'is-open': isOpen }" @click.self="closePopup">
-        <div class="acro-lead-form__card" role="dialog" aria-modal="true" aria-label="AcroGym trial class form">
+        <div class="acro-lead-form__card" role="dialog" aria-modal="true" aria-label="AcroGym class booking form">
             <button v-if="!submitted" class="acro-lead-form__close" type="button" aria-label="Close" @click="closePopup">&times;</button>
 
             <template v-if="!submitted">
@@ -11,7 +11,7 @@
                     Opening September 2026 &middot; The Pearl, Doha
                 </div>
 
-                <h3 class="acro-lead-form__title">Book Your First <span class="acro-lead-form__title-accent">Trial Class</span></h3>
+                <h3 class="acro-lead-form__title">Book Your First <span class="acro-lead-form__title-accent">Class</span></h3>
                 <p class="acro-lead-form__subtitle">Flips, cartwheels and confidence &mdash; leave your number and we&rsquo;ll find the perfect time for your child&rsquo;s first visit.</p>
 
                 <ul class="acro-lead-form__benefits">

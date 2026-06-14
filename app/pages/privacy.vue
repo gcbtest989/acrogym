@@ -30,7 +30,7 @@
 
             <h2>2. How we use your information</h2>
             <ul>
-                <li>To contact you about your enquiry and to arrange trial classes or bookings.</li>
+                <li>To contact you about your enquiry and to arrange classes or bookings.</li>
                 <li>To understand how visitors use our site so we can improve it.</li>
             </ul>
 
